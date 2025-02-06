@@ -25,22 +25,22 @@ document.getElementById('fetchResultsBtn').addEventListener('click', async () =>
             throw new Error('Network response was not ok');
         }
         const scanResults = await response.json();
-        displayResults(scanResults);
+        displayCocktail(scanResults)
+        //console.log(scanResults)
+        //displayResults(scanResults);
     } catch (error) {
         resultsContainer.innerHTML = `<p>Error fetching scan results: ${error.message}</p>`;
     }
 });
 
-function displayResults(results) {
-    const resultsContainer = document.getElementById('resultsContainer');
-    results.forEach(result => {
-        const resultDiv = document.createElement('div');
-        resultDiv.className = 'result';
-        resultDiv.innerHTML = `
-            <h3>${result.title}</h3>
-            <p>${result.description}</p>
-            <p>Status: ${result.status}</p>
-        `;
-        resultsContainer.appendChild(resultDiv);
-    });
-}
+
+    function displayCocktail(data) {
+        console.log(data)
+        const cocktailDiv = document.getElementById("resultsContainer");
+  
+        const cocktailName = data.auth_token;
+        const heading = document.createElement("div");
+        heading.innerHTML = cocktailName;
+        cocktailDiv.appendChild(heading);
+      } ;
+
