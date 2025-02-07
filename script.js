@@ -3,7 +3,7 @@ myHeaders.append("Content-Type", "application/json");
 
 const raw = JSON.stringify({
   "username": "bigid1",
-  "password": "bigid111"
+  "password": ""
 });
 
 const requestOptions = {
